@@ -1,9 +1,7 @@
 class Basketball::TeamInfo
   attr_accessor :name
 
-  def initialize
 
-  end
 
   def list_teams
 

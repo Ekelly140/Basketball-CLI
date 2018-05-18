@@ -1,3 +1,0 @@
-class Basketball::TeamScrapper
-
-end
