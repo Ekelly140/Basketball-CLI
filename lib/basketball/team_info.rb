@@ -1,6 +1,9 @@
 class Basketball::TeamInfo
-  attr_accessor :name
+  attr_accessor :team_name, :team_url
 
+  def initialize(team_info)
+    @team_info = team_info
+  end
 
 
   def list_teams
