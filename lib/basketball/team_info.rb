@@ -1,20 +1,26 @@
 class Basketball::TeamInfo
-  attr_accessor :team_name, :team_url
+  attr_accessor :name, :team_url, :team_info
+  @@all = []
 
   def initialize(team_info)
-    @team_info = team_info
+    binding.pry
+
+    team_info.each do |key, value|
+     self.send("#{key}=", value)
+     @@all <<self
+   end
+  end
+
+  def self.create_from_collection(team_array)
+    team_array.each do |team|
+      TeamInfo.new(team)
+    end
   end
 
 
   def list_teams
 
-    puts"
-    1. Atlanta Hawks
-    2. Boston Celtics
-    3. Broklyn Nets
-    4. Charlote Hornets
-    5. Chicago Bulls
-    "
+    @@all.each_with_index {|team, index| puts "#{index + 1} #{team[name]}"}
   end
 
   def list_players

@@ -13,12 +13,9 @@ class Basketball::TeamScrapper
       team.css("div.team__list").each do |info|
         link = info.css("a").attr("href").value
         team_name = link = info.css(".logo").attr("alt").value
-        teams << {name: team_name,  team_url: link}
+        teams << {name: team_name, team_url: link}
       end
     end
     teams
-
-
   end
-
 end
