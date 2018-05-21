@@ -1,3 +1,0 @@
-class Basketball::Team
-
-end 

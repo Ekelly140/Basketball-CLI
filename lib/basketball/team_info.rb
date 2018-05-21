@@ -1,26 +1,23 @@
-class Basketball::TeamInfo
+class Basketball::Team
   attr_accessor :name, :team_url, :team_info
   @@all = []
 
   def initialize(team_info)
-    binding.pry
-
-    team_info.each do |key, value|
+      team_info.each do |key, value|
      self.send("#{key}=", value)
-     @@all <<self
-   end
+     end
+      @@all <<self
   end
 
   def self.create_from_collection(team_array)
-    team_array.each do |team|
-      TeamInfo.new(team)
-    end
+    team_array.each {|team| Basketball::Team.new(team)}
   end
 
 
-  def list_teams
-
-    @@all.each_with_index {|team, index| puts "#{index + 1} #{team[name]}"}
+  def self.list_teams
+      @@all.each_with_index do |team, index|
+      puts "#{index + 1} #{team.name}"
+    end
   end
 
   def list_players
