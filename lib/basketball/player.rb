@@ -1,5 +1,5 @@
 class Basketball::Player
-  attr_accessor :name, :number, :position, :points, :assisst, :rebounds
+  attr_accessor :name, :number, :position, :points, :assisst, :rebounds, :team
 
   def initialize(player_info)
      player_info.each do |key, value|
