@@ -1,7 +1,7 @@
 class Basketball::Team
   attr_accessor :name, :team_url, :team_info
   @@all = []
-  @@players = []
+  @players = []
 
   def initialize(team_info)
      team_info.each do |key, value|
@@ -31,33 +31,13 @@ class Basketball::Team
 
     while input != "exit"
       input = gets.chomp
-      input = input.downcase
-      case input
-        when "1"
-          puts "Give info about The Hawks, here are the players"
-          list_players
-          get_player
-        when "2"
-          puts "Give info about The Celtics, here are the players"
-          list_players
-          get_player
-        when "3"
-          puts "Give info about The Nets, here are the players"
-          list_players
-          get_player
-        when "4"
-          puts "Give info about The Hornets, here are the players"
-          list_players
-          get_player
-        when "5"
-          puts "Give info about The Bulls, here are the players"
-          list_players
-          get_player
-        else
+      input = input.to_i if input.downcase != "exit"
+
+      if input > 0 && input <= @@all.length
+        puts @@all[input - 1].name
+      else
           puts "Invalid Entry! Please enter a number of a team or exit"
-          list_teams
-          get_player
-        end
+      end
     end
   end
 
