@@ -31,7 +31,7 @@ class Basketball::Team
   end
 
 
-  def get_team
+  def self.get_team
     input = nil
 
     while input != "exit"
