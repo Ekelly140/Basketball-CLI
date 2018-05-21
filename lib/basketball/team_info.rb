@@ -4,7 +4,7 @@ class Basketball::Team
   @@players = []
 
   def initialize(team_info)
-      team_info.each do |key, value|
+     team_info.each do |key, value|
      self.send("#{key}=", value)
      end
       @@all <<self
