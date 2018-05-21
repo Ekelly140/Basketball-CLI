@@ -1,6 +1,7 @@
 class Basketball::Team
   attr_accessor :name, :team_url, :team_info
   @@all = []
+  @@players = []
 
   def initialize(team_info)
       team_info.each do |key, value|
@@ -20,14 +21,8 @@ class Basketball::Team
     end
   end
 
-  def list_players
-    puts "
-    1. Carmelo Anthony
-    2. Lebron James
-    3. Anthony Davis
-    4. Kyrie Erving
-    5. Kevin Durant
-    "
+  def self.list_players
+    @@players.each_with_index {|player, index| puts "#{index + 1} #{player.name}"}
   end
 
 
