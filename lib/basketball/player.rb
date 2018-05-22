@@ -10,6 +10,12 @@ class Basketball::Player
       @@all <<self
   end
 
+  def team=(team)
+    @team = team
+    player_team = team_find(team)
+    player_team.add_player(self)
+  end
+
   def get_player
     input = nil
 
