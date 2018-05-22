@@ -13,3 +13,4 @@ require 'pry'
 require "irb"
 
 IRB.start(__FILE__)
+Basketball::CLI.new.call
