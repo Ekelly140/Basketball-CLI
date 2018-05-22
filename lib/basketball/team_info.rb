@@ -21,6 +21,12 @@ class Basketball::Team
     end
   end
 
+def self.find_team(team_name)
+  @@all.each do |team|
+    return team[name] if team[name] == team_name
+  end
+
+end
 
   def self.get_team
     input = nil
