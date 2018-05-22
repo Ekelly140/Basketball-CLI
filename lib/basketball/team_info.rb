@@ -21,10 +21,6 @@ class Basketball::Team
     end
   end
 
-  def list_players
-    @players.each_with_index {|player, index| puts "#{index + 1} #{player.name}"}
-  end
-
 
   def self.get_team
     input = nil
@@ -39,6 +35,14 @@ class Basketball::Team
           puts "Invalid Entry! Please enter a number of a team or exit"
       end
     end
+  end
+
+  def add_player(player)
+    @players << player
+  end
+
+  def list_players
+    @players.each_with_index {|player, index| puts "#{index + 1} #{player.name}"}
   end
 
 
