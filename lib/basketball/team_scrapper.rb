@@ -14,7 +14,7 @@ class Basketball::TeamScrapper
         link = info.css("a").attr("href").value
         team_name = info.css(".logo").attr("alt").value
         stats = Nokogiri::HTML(open("http://nba.com#{link}"))
-        wins = stats.css("#1610612737")
+        wins = stats.css("#1610612737 ")
         binding.pry
         teams << {name: team_name, team_url: link}
       end
