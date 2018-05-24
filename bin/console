@@ -11,6 +11,5 @@ require_relative "../lib/basketball.rb"
 # Pry.start
 require 'pry'
 require "irb"
-
-IRB.start(__FILE__)
 Basketball::CLI.new.call
+IRB.start(__FILE__)

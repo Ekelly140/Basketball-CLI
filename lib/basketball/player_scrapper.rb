@@ -11,14 +11,16 @@ class Basketball::PlayerScrapper
     players = []
 
     index.css(".nba-player-index__row").each do |player|
-      binding.pry
-
-      name = player.css(".nba-player-index__name").text
-      link = player.css("a").attr("href").value
+      player.css(".nba-player-index__trending-item").each do |items|
+      name = items.css(".nba-player-index__name").text
+      link = items.css("a").attr("href").value
       players << {player_name: name, player_url: link}
       end
+    end
+    binding.pry
     players
-
   end
 
 end
+
+#<section class="nba-player-index__trending-item small-4 medium-3 large-2 team-atl-hawks">
