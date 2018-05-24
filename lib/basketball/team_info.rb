@@ -33,14 +33,20 @@ end
 
     while input != "exit"
       input = gets.chomp
-      input = input.to_i if input.downcase != "exit"
 
-      if input > 0 && input <= @@all.length
-        team = @@all[input - 1]
+
+      if input.to_i  > 0 && input.to_i <= @@all.length
+        team = @@all[input.to_i - 1]
+        puts ""
         puts "Here are the players that play for the " + team.name + "."
+        puts ""
         input = "exit"
+      elsif input == "exit"
+        abort("Thank you for using the basketball cli!")
       else
-          puts "Invalid Entry! Please enter a number of a team or exit."
+        puts ""
+        puts "Invalid Entry! Please enter a number of a team or exit."
+        puts ""
       end
     end
     team
