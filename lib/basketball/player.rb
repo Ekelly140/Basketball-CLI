@@ -29,7 +29,7 @@ class Basketball::Player
 
       if input > 0 && input <= @@all.length
         player = @@all[input - 1]
-        puts "that is " + player.name
+        puts "#{player.name} is number #{player.number} for the #{player.team.name}. Born on #{player.birthday} #{player.name} is #{player.age} years old and has been in the league for #{player.years} years. If you wish to learn more about #{player.name} his stats can be found at nba.com#{player.player_url}"
         input = "exit"
       else
           puts "Invalid Entry! Please enter a number of a player or exit."

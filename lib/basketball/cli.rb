@@ -10,6 +10,9 @@ class Basketball::CLI
     player_info = Basketball::PlayerScrapper.scrape_index_page(url, team)
     Basketball::Player.create_from_collection(player_info)
     team.list_players
+    puts ""
+    puts "Please enter the number of the player you would like to see or type exit to quit"
+    puts ""
     player = Basketball::Player.get_player
   end
 
