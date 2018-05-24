@@ -15,10 +15,25 @@ class Basketball::PlayerScrapper
       link = items.css("a").attr("href").value
       name = items.css("a").attr("title").value
       number = items.css(".nba-player-trending-item__number").text
-      players << {name: name, player_url: link, number: number}
+      player_page = Nokogiri::HTML(open("http://nba.com#{link}"))
+      i = 1
+      bday = ""
+      player_page.css(".nba-player-vitals__bottom-info").each do |a|
+        case i
+        when 1
+          bday = a.text
+          bday = bday.gsub(/[ \n]/,"")
+        else
+          puts "not working"
+        end
+        i += 1
+      end
+      players << {name: name, player_url: link, number: number, birthday: bday}
+      binding.pry
+
       end
     end
-    binding.pry
+
 
     players
   end
@@ -28,3 +43,4 @@ end
 #<section class="nba-player-index__trending-item small-4 medium-3 large-2 team-atl-hawks">
 #<span class="nba-player-trending-item__number">24</span>
 #<div class="nba-player-index__details"><span>Guard</span><span><strong>6</strong> ft <strong>5</strong> in | <strong>201</strong> lbs</span></div>
+#<p class="nba-player-vitals__top-info-imperial"><span>6 <abbr title="feet">ft</abbr></span><span>5 <abbr title="inches">in</abbr></span></p>

@@ -16,6 +16,10 @@ class Basketball::Player
     player_team.add_player(self)
   end
 
+  def self.create_from_collection(player_array)
+    player_array.each {|player| Basketball::Player.new(team)}
+  end
+
   def self.get_player
     input = nil
 
