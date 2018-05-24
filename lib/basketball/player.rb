@@ -16,27 +16,20 @@ class Basketball::Player
     player_team.add_player(self)
   end
 
-  def get_player
+  def self.get_player
     input = nil
 
     while input != "exit"
       input = gets.chomp
-      input = input.downcase
-      case input
-        when "1"
-          puts "Give the stats of Carmelo Anthony"
-        when "2"
-          puts "Give the stats of Lebron James"
-        when "3"
-          puts "Give the stats of Anthony Davis"
-        when "4"
-          puts "Give the stats of Kyrie Erving"
-        when "5"
-          puts "Give the stats of Kevin Durant"
-        else
-          puts "Invalid Entry! Please enter a number of a player or exit"
-          list_players
-        end
+      input = input.to_i if input.downcase != "exit"
+
+      if input > 0 && input <= @@all.length
+        player = @@all[input - 1]
+        puts "that is " + player.name
+        input = "exit"
+      else
+          puts "Invalid Entry! Please enter a number of a player or exit."
+      end
     end
   end
 

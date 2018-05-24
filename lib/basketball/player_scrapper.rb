@@ -4,7 +4,7 @@ require 'open-uri'
 
 
 class Basketball::PlayerScrapper
-  attr_accessor :player_name, :player_url
+  attr_accessor :name, :player_url
 
   def self.scrape_index_page(team_url)
     index = Nokogiri::HTML(open("http://nba.com#{team_url}"))
@@ -14,10 +14,9 @@ class Basketball::PlayerScrapper
       player.css(".nba-player-index__trending-item").each do |items|
       name = items.css(".nba-player-index__name").text
       link = items.css("a").attr("href").value
-      players << {player_name: name, player_url: link}
+      players << {name: name, player_url: link}
       end
     end
-    binding.pry
     players
   end
 
