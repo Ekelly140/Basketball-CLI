@@ -43,7 +43,7 @@ end
           puts "Invalid Entry! Please enter a number of a team or exit."
       end
     end
-    team.team_url
+    team
   end
 
   def add_player(player)

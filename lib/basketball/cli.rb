@@ -5,8 +5,12 @@ class Basketball::CLI
     team_information = Basketball::TeamScrapper.scrape_index_page("http://nba.com/teams")
     Basketball::Team.create_from_collection(team_information)
     Basketball::Team.list_teams
-    url = Basketball::Team.get_team
-    players = Basketball::PlayerScrapper.scrape_index_page(url)
+    team =Basketball::Team.get_team
+    url = team.team_url
+    player_info = Basketball::PlayerScrapper.scrape_index_page(url, team)
+    Basketball::Player.create_from_collection(player_info)
+    team.list_players
+    player = Basketball::Player.get_player
   end
 
 

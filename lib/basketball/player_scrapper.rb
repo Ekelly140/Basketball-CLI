@@ -6,7 +6,7 @@ require 'open-uri'
 class Basketball::PlayerScrapper
 
 
-  def self.scrape_index_page(team_url)
+  def self.scrape_index_page(team_url, team)
     index = Nokogiri::HTML(open("http://nba.com#{team_url}"))
     players = []
 
@@ -35,11 +35,10 @@ class Basketball::PlayerScrapper
         i += 1
 
       end
-      players << {name: name, player_url: link, number: number, birthday: bday, age: age, years: years}
+      players << {name: name, player_url: link, number: number, birthday: bday, age: age, years: years, team: team}
       end
     end
 
-    binding.pry
     players
   end
 

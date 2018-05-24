@@ -1,5 +1,5 @@
 class Basketball::Player
-  attr_accessor :name, :number, :position, :points, :assisst, :rebounds, :team
+  attr_accessor :name, :number, :team, :age, :years, :player_url, :birthday
 
   @@all = []
 
@@ -8,16 +8,16 @@ class Basketball::Player
      self.send("#{key}=", value)
      end
       @@all <<self
+
   end
 
   def team=(team)
     @team = team
-    player_team = team_find(team)
-    player_team.add_player(self)
+    @team.add_player(self)
   end
 
   def self.create_from_collection(player_array)
-    player_array.each {|player| Basketball::Player.new(team)}
+    player_array.each {|player| Basketball::Player.new(player)}
   end
 
   def self.get_player
