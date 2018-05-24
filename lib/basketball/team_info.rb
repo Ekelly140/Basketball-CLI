@@ -36,11 +36,14 @@ end
       input = input.to_i if input.downcase != "exit"
 
       if input > 0 && input <= @@all.length
-        puts @@all[input - 1].name
+        team = @@all[input - 1]
+        puts "Here are the players that play for the " + team.name + "."
+        input = "exit"
       else
-          puts "Invalid Entry! Please enter a number of a team or exit"
+          puts "Invalid Entry! Please enter a number of a team or exit."
       end
     end
+    team.team_url
   end
 
   def add_player(player)
