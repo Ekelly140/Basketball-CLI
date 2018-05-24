@@ -18,23 +18,28 @@ class Basketball::PlayerScrapper
       player_page = Nokogiri::HTML(open("http://nba.com#{link}"))
       i = 1
       bday = ""
+      age = 0
+      years = 0
       player_page.css(".nba-player-vitals__bottom-info").each do |a|
         case i
         when 1
           bday = a.text
           bday = bday.gsub(/[ \n]/,"")
-        else
-          puts "not working"
+        when 2
+          age = a.text
+          age = age.gsub(/[years \n]/,"")
+        when 5
+          years = a.text
+          years = years.gsub(/[ \n]/,"")
         end
         i += 1
-      end
-      players << {name: name, player_url: link, number: number, birthday: bday}
-      binding.pry
 
+      end
+      players << {name: name, player_url: link, number: number, birthday: bday, age: age, years: years}
       end
     end
 
-
+    binding.pry
     players
   end
 
