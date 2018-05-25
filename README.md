@@ -1,4 +1,4 @@
-# Basketball::Cli
+16# Basketball::Cli
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/basketball/cli`. To experiment with that code, run `bin/console` for an interactive prompt.
 
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+When using this gem you will be prompted with a list of professional basketball teams from the NBA. When presented with this list you will enter the number of a corresponding team to receive a list of all the players that are currently on that teams roster. You will then enter a number corresponding with any player to recieve details about that player.
 
 ## Development
 

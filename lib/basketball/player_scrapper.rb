@@ -43,8 +43,3 @@ class Basketball::PlayerScrapper
   end
 
 end
-
-#<section class="nba-player-index__trending-item small-4 medium-3 large-2 team-atl-hawks">
-#<span class="nba-player-trending-item__number">24</span>
-#<div class="nba-player-index__details"><span>Guard</span><span><strong>6</strong> ft <strong>5</strong> in | <strong>201</strong> lbs</span></div>
-#<p class="nba-player-vitals__top-info-imperial"><span>6 <abbr title="feet">ft</abbr></span><span>5 <abbr title="inches">in</abbr></span></p>
